@@ -11,7 +11,7 @@ type Contact = {
 const MONGO_URL = Deno.env.get("MONGO_URL");
 if(!MONGO_URL){
   console.error("Error mongodb");
-  Deno.exit(-1);
+  throw new Error("Falta la variable de entorno MONGO_URL");
 }
 // connect mongo db
 const client = new MongoClient(MONGO_URL);
